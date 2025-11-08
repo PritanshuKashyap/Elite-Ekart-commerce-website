@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ekart Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #dfe9f3, #ffffff);
+        }
+
+        .container {
+            width: 850px;
+            height: 480px;
+            background: white;
+            margin: 70px auto;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        .left-box {
+            width: 40%;
+            background: #2874f0;
+            color: white;
+            padding: 45px;
+        }
+
+        .left-box h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .left-box p {
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        .right-box {
+            width: 60%;
+            padding: 45px;
+            background: #fff;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #2874f0;
+            box-shadow: 0 0 5px rgba(40, 116, 240, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #fb641b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e65a12;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+
+        .signup-text a {
+            color: #2874f0;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+            color: #0a4ecb;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left-box">
+        <h2>Login</h2>
+        <p>Get access to your Orders, Wishlist and<br>Recommendations</p>
+    </div>
+
+    <div class="right-box">
+        <form onsubmit="return validateForm()">
+            <input type="text" id="email" placeholder="Enter Email / username">
+            <input type="password" id="password" placeholder="Enter Password">
+            <p id="errorMsg" class="error"></p>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="signup-text">New to Ekart? <a href="signup.html">Create an account</a></p>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        let loginInput = document.getElementById("email").value.trim();
+        let pass = document.getElementById("password").value.trim();
+        let error = document.getElementById("errorMsg");
+
+        if (loginInput === "" || pass === "") {
+            error.innerText = "⚠️ Please fill all fields!";
+            return false;
+        }
+
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Find user by username or email
+        let foundUser = users.find(user =>
+            (user.username === loginInput || user.email === loginInput) &&
+            user.password === pass
+        );
+
+        if (!foundUser) {
+            error.innerText = "❌ Invalid username/email or password!";
+            return false;
+        }
+
+        // Save logged-in user
+        localStorage.setItem("currentUser", foundUser.username);
+
+        alert("✅ Login Successful!");
+        window.location.href = "index.html"; // change if needed
+        return false; // prevent default form submit
+    }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EliteKart – Sign Up</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+   body {
+  background-image: url('https://i.pinimg.com/736x/54/30/f6/5430f68f39db5981c738f0deb1ce2838.jpg'); /* apni image ka path yahan daal */
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;  
+  background-attachment: fixed;  
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+    /* Add a transparent dark overlay to make the card pop */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.95);
+      width: 380px;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+      padding: 40px 35px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .brand img {
+      width: 45px;
+      margin-right: 10px;
+    }
+
+    .brand h1 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #007bff;
+      margin: 0;
+    }
+
+    h2 {
+      color: #222;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 6px rgba(0,123,255,0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      margin-top: 15px;
+      color: #444;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .card {
+  position: relative;
+  z-index: 1;
+  width: 380px;
+  padding: 40px 35px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 123, 255, 0.5);
+}
+
+.card h2 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #222;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,123,255,0.7);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #00aaff);
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+}
+
+p, .footer {
+  color: #fff;
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- LOGO / BRAND -->
+    <div class="brand">
+      <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="EliteKart Logo">
+      <h1>EliteKart</h1>
+    </div>
+
+    <h2>Create Your Ekart Account</h2>
+
+    <!-- FORM FIELDS -->
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+    <button onclick="signup()">Sign Up</button>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+    <div class="footer">© 2025 EliteKart Shopping – All Rights Reserved</div>
+  </div>
+
+  <script>
+  function signup() {
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+    if (!username || !email || !password || !confirmPassword) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+      alert("Please enter a valid email address!");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters!");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // Get existing users or create empty array
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if username OR email already exists
+    const userExists = users.some(user => user.username === username);
+    const emailExists = users.some(user => user.email === email);
+
+    if (userExists) {
+      alert("Username already exists! Try another one.");
+      return;
+    }
+
+    if (emailExists) {
+      alert("Email already registered, try logging in.");
+      return;
+    }
+
+    // Add new user
+    users.push({ username, email, password });
+
+    // Save updated user list
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Signup successful! Now you can login.");
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
+
