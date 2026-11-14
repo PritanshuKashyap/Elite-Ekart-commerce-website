@@ -1,4 +1,4 @@
-console.clear();
+console.clear(); 
  
 if(document.cookie.indexOf(',counter=')>=0)    
 {     
